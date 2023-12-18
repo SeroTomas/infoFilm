@@ -13,10 +13,13 @@ const FormContainer = styled.div`
 `
 
 const LoginForm = () => {
+
+
+
     return (
         <FormContainer>
-            <CustomInput/>
-            <CustomInput/>
+            <CustomInput />
+            <CustomInput />
         </FormContainer>
     )
 }
