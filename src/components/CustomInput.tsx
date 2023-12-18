@@ -64,4 +64,4 @@ const CustomInput = ({ value, type, handleValue }: Props) => {
         </InputLayout>
     )
 }
-export default CustomInput
+export default CustomInput;
