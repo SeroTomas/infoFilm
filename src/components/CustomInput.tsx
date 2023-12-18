@@ -12,11 +12,22 @@ const ErrorSpan = styled.span`
     
 `
 
-const CustomInput = () => {
+interface Props {
+    value: string
+    type: string
+    handleValue: () => {}
+}
+
+const handlePlaceholder = () => {
+    
+}
+
+
+const CustomInput = ({ value, type, handleValue }: Props) => {
     return (
         <InputLayout>
-            <Input />
-            <ErrorSpan />
+            <Input type={type} placeholder={ } />
+            <ErrorSpan></ErrorSpan>
         </InputLayout>
     )
 }
