@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { CustomInput } from "@/components";
+import {useInput} from "@/hooks";
 
 const FormContainer = styled.div`
     width: 400px;
@@ -14,12 +15,13 @@ const FormContainer = styled.div`
 
 const LoginForm = () => {
 
-
+    const email = useInput("email");
+    const password = useInput("password");
 
     return (
         <FormContainer>
-            <CustomInput />
-            <CustomInput />
+            <CustomInput {...email} />
+            <CustomInput {...password} />
         </FormContainer>
     )
 }
