@@ -4,12 +4,12 @@ import {useInput} from "@/hooks";
 
 const FormContainer = styled.div`
     width: 400px;
-    padding: 10px;
+    padding: 30px;
     background-color: aliceblue;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     
 `
 
