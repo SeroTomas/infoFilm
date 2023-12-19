@@ -22,8 +22,8 @@ const getPlaceholder = (type: InputType) => placeholder[type];
 
 interface Props {
     value: string
-    type: InputType
     error: string
+    type: InputType
     handleValue: (event: ChangeEvent<HTMLInputElement>) => void
 }
 

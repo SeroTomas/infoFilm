@@ -29,8 +29,9 @@ const useInput = (type: InputType) => {
     const [error, setError] = useState("");
 
     const handleError = (value: string) => {
-       !value && setError(getEmptyInputError(type));
-       value && getRegex(type).test(value) ? setError("") : setError(getWrongInputValueError(type))
+        const regexOut = getRegex(type).test(value);
+        regexOut ? setError("") : setError(getWrongInputValueError(type));
+        !value && setError(getEmptyInputError(type));
     }
 
     const handleValue = (event: ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +39,6 @@ const useInput = (type: InputType) => {
         setValue(inputValue);
         handleError(inputValue);
     }
-
 
     return {
         value,
