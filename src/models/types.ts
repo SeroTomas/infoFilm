@@ -1,1 +1,1 @@
-type InputType = "email" | "password"
+export type InputType = "email" | "password"
