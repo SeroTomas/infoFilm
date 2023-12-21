@@ -1,17 +1,22 @@
 import { supabaseClient } from "@/services";
 
 export const signInWithEmail = async (email: string) => {
-    const { data, error } = await supabaseClient.auth.signInWithOtp({
+    const { data } = await supabaseClient.auth.signInWithOtp({
         email: email,
         options: {
-            shouldCreateUser: false,
-            emailRedirectTo: "http://localhost:5173/"
+            shouldCreateUser: true,
+            emailRedirectTo: "http://localhost:5173/home"
         },
     })
     return data;
 }
 
 export const getSession = async () => {
-    const { data } = await supabaseClient.auth.getSession();
-    console.log(data.session?.user)
+    const { data : {session} } = await supabaseClient.auth.getSession();
+    return session;
+}
+
+
+export const signOut = async () => {
+    const { error } = await supabaseClient.auth.signOut();
 }

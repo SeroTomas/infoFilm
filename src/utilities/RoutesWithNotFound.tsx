@@ -1,0 +1,16 @@
+import { NotFound } from "@/pages"
+import { Route, Routes } from "react-router-dom"
+
+interface Props {
+    children: React.ReactNode
+}
+
+const RoutesWithNotFound = ({ children }: Props) => {
+    return (
+        <Routes>
+            {children}
+            <Route path="*" element={<NotFound />} />
+        </Routes>
+    )
+}
+export default RoutesWithNotFound

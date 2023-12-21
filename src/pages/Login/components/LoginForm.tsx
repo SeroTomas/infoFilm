@@ -37,8 +37,8 @@ const LoginForm = () => {
     const handleSubmit = async (event: ChangeEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-            if (!email.error) {
-                const user = await signInWithEmail(email.value)
+            if (!email.error && email.value) {
+                const {user} = await signInWithEmail(email.value)
                 console.log(user)
             }
         } catch (error) {
