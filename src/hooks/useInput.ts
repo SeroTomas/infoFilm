@@ -3,22 +3,18 @@ import { ChangeEvent, useState, useMemo } from "react"
 
 const emptyError = {
     email: "Debe ingresar su Email",
-    password: "Debe ingresar su contraseña"
 }
 
 const wrongError = {
     email: "Ingrese un Email valido",
-    password: "Su contraseña debe tener al menos 6 letras"
 }
 
 const placeholder = {
     email: "Por favor ingrese su Email",
-    password: "Por favor ingrese su contraseña"
 }
 
 const regexp = {
     email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-    password: /^(?=.*[a-zA-Z].{6,})[^\s]+$/
 }
 
 const getPlaceholder = (type: InputType) => placeholder[type];
