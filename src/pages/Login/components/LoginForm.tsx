@@ -1,8 +1,8 @@
 import styled from "styled-components"
 import { CustomInput } from "@/components";
-import { useInput } from "@/hooks";
+import { useInput, useSupaSession } from "@/hooks";
 import { ChangeEvent } from "react";
-import { signInWithEmail } from "@/utilities";
+import { supabase } from "@/services";
 
 const FormContainer = styled.form`
     width: 400px;
@@ -37,19 +37,23 @@ const LoginForm = () => {
     const handleSubmit = async (event: ChangeEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-            if (!email.error && email.value) {
-                const {user} = await signInWithEmail(email.value)
-                console.log(user)
+            async function signInWithEmail() {
+                await supabase.auth.signInWithOtp({
+                    email: email.value,
+                    options: {
+                        // set this to false if you do not want the user to be automatically signed up
+                        shouldCreateUser: false,
+                    },
+                })
             }
-        } catch (error) {
-            console.log(error)
-        }
+            signInWithEmail();
+        } catch (error) { console.log(error) }
     }
 
     return (
         <FormContainer onSubmit={handleSubmit}>
             <CustomInput {...email} />
-            <SubmitButton>Enviar</SubmitButton>
+            <SubmitButton type="submit">Enviar</SubmitButton>
         </FormContainer>
     )
 }

@@ -16,7 +16,7 @@ const InputLayout = styled.div`
     gap: 3px;
     height: 55px;
 `
-const Input = styled.input<{ $haveError?: boolean}>`
+const Input = styled.input<{ $haveError?: boolean }>`
         outline: none;
         font-size: 1.6rem;
         font-weight: 600;
@@ -47,8 +47,8 @@ const ErrorSpan = styled.span`
 `
 
 
-const CustomInput = ({ type, error, placeholder,  handleValue }: Props) => {
-    
+const CustomInput = ({ type, error, placeholder, handleValue }: Props) => {
+
     return (
         <InputLayout>
             <Input type={type} placeholder={placeholder} onChange={handleValue} $haveError={!!error} />

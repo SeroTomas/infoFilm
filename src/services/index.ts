@@ -1,1 +1,1 @@
-export { default as supabaseClient } from './supabaseClient';
+export { default as supabase } from './supabaseClient';

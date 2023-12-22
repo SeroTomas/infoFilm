@@ -1,23 +1,10 @@
-import { getSession } from "@/utilities"
-import { Session } from "@supabase/supabase-js"
-import { useState, useEffect } from "react"
+import { PRIVATE_ROUTES, PUBLIC_ROUTES } from "@/models"
+import { supabase } from "@/services"
+import { removeUserLocalstorage, saveUserLocalstorage } from "@/utilities"
+import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 const useSupaSession = () => {
-
-    const [session, setSession] = useState<Session | null>()
-
-    useEffect(() => {
-        try {
-            getSession().then(data => {
-                setSession(data)
-            })
-        } catch (error) { console.log(error) }
-
-        console.log(session);
-        
-    }, [])
-
-
-    return session
+    
 }
 export default useSupaSession
